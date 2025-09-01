@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Course Overview | ECLearnix</title>
+<style>
+  * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+  body {background:#f9f9f9; color:#333; line-height:1.6;}
+  header {background:#004aad; color:#fff; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; position:sticky; top:0; z-index:1000;}
+  header h1 {cursor:pointer;}
+  nav a {color:#fff; text-decoration:none; margin:0 1rem; font-weight:bold; transition:0.3s;}
+  nav a:hover {color:#ffd700;}
+  #theme-toggle {background:none; border:none; color:#fff; cursor:pointer; font-size:1.2rem; margin-left:1rem;}
+
+  .container {max-width:800px; margin:2rem auto; padding:2rem; background:#fff; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+  h2 {color:#004aad; margin-bottom:1rem;}
+  ul {margin-left:1.2rem; margin-bottom:1rem;}
+  li {margin:0.5rem 0;}
+  button {background:#004aad; color:#fff; border:none; padding:0.8rem 1.5rem; cursor:pointer; border-radius:5px; transition:0.3s;}
+  button:hover {background:#ffd700; color:#000;}
+
+  /* Popup */
+  .popup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:10000;}
+  .popup-content {background:#fff; padding:2rem; border-radius:10px; text-align:center; max-width:400px;}
+  .popup-content img {width:100px; margin-bottom:1rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 onclick="window.location.href='index.html'">ECLearnix</h1>
+  <nav>
+    <a href="index.html#courses">Courses</a>
+    <a href="#login">Login</a>
+    <button id="theme-toggle">🌙</button>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Python Programming for Data Science</h2>
+  <p>Hands-on Python course focusing on data analysis, visualization, and basic machine learning techniques.</p>
+
+  <h3>Modules:</h3>
+  <ul>
+    <li>Python Basics & Data Types</li>
+    <li>Control Structures</li>
+    <li>Functions & Modules</li>
+    <li>Pandas for Data Analysis</li>
+    <li>Data Visualization with Matplotlib</li>
+    <li>Introduction to Machine Learning</li>
+  </ul>
+
+  <button id="enroll-btn">Enroll Now</button>
+</div>
+
+<!-- Enrollment Popup -->
+<div class="popup" id="enroll-popup">
+  <div class="popup-content">
+    <img src="https://img.icons8.com/color/96/000000/ok--v1.png" alt="Badge">
+    <h2>Congratulations!</h2>
+    <p>You have taken the first step! Click below to start learning.</p>
+    <button id="start-course">Go to Course</button>
+  </div>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    toggleBtn.textContent = body.classList.contains('dark-theme') ? '☀️' : '🌙';
+  });
+
+  const enrollBtn = document.getElementById('enroll-btn');
+  const enrollPopup = document.getElementById('enroll-popup');
+  const startCourse = document.getElementById('start-course');
+
+  enrollBtn.addEventListener('click', () => {
+    enrollPopup.style.display = 'flex';
+  });
+
+  startCourse.addEventListener('click', () => {
+    window.location.href = 'python-course-content.html';
+  });
+</script>
+</body>
+</html>

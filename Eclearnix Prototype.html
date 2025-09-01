@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECLearnix - Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #004aad;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff; /* default for dark hero image */
+  transition: color 0.3s ease;
+}
+
+/* Light theme adjustment */
+body:not(.dark-theme) .hero h2 {
+  color: #004aad; /* dark blue for visibility on light background */
+}
+
+    .hero button {
+      background: #ffd700;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .hero button:hover {
+      background: #ffc107;
+    }
+    marquee {
+      background: #004aad;
+      color: #fff;
+      padding: 0.5rem;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #004aad;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    footer {
+      background: #004aad;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 onclick="window.location.href='index.html'">ECLearnix</h1>
+    <nav>
+      <a href="#courses">Courses</a>
+      <a href="#fdp">FDPs</a>
+      <a href="#webinars">Webinars</a>
+      <a href="#conferences">Conferences</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#login">Login</a>
+      <button id="theme-toggle">🌙</button>
+    </nav>
+  </header>
+  
+  <div class="hero">
+    <h2>Where Learners Come to Excel</h2>
+    <button>Explore Courses</button>
+    <button>Join Now</button>
+  </div>
+  
+<!-- Image Carousel -->
+<section class="carousel">
+  <div class="carousel-container">
+    <div class="carousel-slide active">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756750783/Screenshot_2025-09-01_234507_era7j5.png" alt="Slide 1">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756750783/Screenshot_2025-09-01_234434_p8n746.png" alt="Slide 2">
+    </div>
+    <div class="carousel-slide">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756752612/Screenshot_2025-09-02_001932_nmngwn.png" alt="Slide 3">
+    </div>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</section>
+
+<style>
+  body.dark-theme {
+    background: #1e1e1e;
+    color: #f0f0f0;
+  }
+  body.dark-theme header {
+    background: #222;
+  }
+  body.dark-theme nav a {
+    color: #f0f0f0;
+  }
+  body.dark-theme .hero {
+    background-blend-mode: multiply;
+  }
+  body.dark-theme .card {
+    background: #333;
+    color: #f0f0f0;
+  }
+  body.dark-theme footer {
+    background: #222;
+  }
+
+  #theme-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+
+    // Change icon depending on theme
+    if (body.classList.contains('dark-theme')) {
+      toggleBtn.textContent = '☀️';
+    } else {
+      toggleBtn.textContent = '🌙';
+    }
+  });
+</script>
+
+<style>
+  .carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 1rem 0;
+    overflow: hidden;
+  }
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-slide {
+    min-width: 100%;
+    box-sizing:border-box;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    object-fit: cover;
+    display: block;
+  }
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .prev { left: 10px; }
+  .next { right: 10px; }
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  min-height: 400px; /* ensures all cards are same height */
+}
+
+.card img {
+  width: 100%;
+  height: 150px; /* fixed height for uniformity */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.card h4 {
+  margin: 0.5rem 0;
+  color: #004aad;
+}
+
+.card p {
+  flex-grow: 1; /* keeps button at bottom */
+}
+
+.card button {
+  background: #004aad;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.card button:hover {
+  background: #ffd700;
+  color: #000;
+}
+
+
+</style>
+
+<script>
+  const slides = document.querySelectorAll('.carousel-slide');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.transform = `translateX(${100 * (i - index)}%)`;
+    });
+  }
+
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  });
+
+  // Auto-slide every 3 seconds
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 3000);
+
+  // Initialize
+  showSlide(current);
+
+  
+</script>
+  <section id="courses">
+  <h3>Featured Courses</h3>
+  <div class="grid">
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757574/Screenshot_2025-09-02_014016_ppo6v9.png" alt="AI Course">
+      <h4>Introduction to Artificial Intelligence</h4>
+      <p>Learn the fundamentals of AI, including machine learning, neural networks, and natural language processing.</p>
+      <button>Enroll Now</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757574/Screenshot_2025-09-02_014114_wzmuep.png" alt="Digital Marketing">
+      <h4>Digital Marketing Strategies</h4>
+      <p>Master SEO, social media marketing, email campaigns, and content strategy to grow your business online.</p>
+      <button>Enroll Now</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757574/Screenshot_2025-09-02_014145_l1bfui.png" alt="Python Data Science">
+      <h4>Python Programming for Data Science</h4>
+      <p>Hands-on Python course focusing on data analysis, visualization, and basic machine learning techniques.</p>
+      <button onclick="window.location.href='Python_course_page.html'">Enroll Now</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757574/Screenshot_2025-09-02_014215_qc0tzg.png" alt="Leadership">
+      <h4>Effective Leadership & Management</h4>
+      <p>Develop leadership skills, team management strategies, and decision-making techniques.</p>
+      <button>Enroll Now</button>
+    </div>
+  </div>
+</section>
+
+
+<section id="fdp">
+  <h3>Faculty Development Programs</h3>
+  <div class="grid">
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757776/Screenshot_2025-09-02_014353_cmeimb.png" alt="Teaching Methods">
+      <h4>Innovative Teaching Methods</h4>
+      <p>Learn modern pedagogical techniques to engage students and enhance classroom learning.</p>
+      <button>Register Now</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757776/Screenshot_2025-09-02_014448_yldkxx.png" alt="EdTech Tools">
+      <h4>Educational Technology Tools</h4>
+      <p>Explore online tools, LMS platforms, and AI-assisted teaching for effective digital classrooms.</p>
+      <button>Register Now</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757776/Screenshot_2025-09-02_014520_i7r8cj.png" alt="Research Workshop">
+      <h4>Research & Publication Workshop</h4>
+      <p>Understand research methodologies, academic writing, and strategies for publishing in journals.</p>
+      <button>Register Now</button>
+    </div>
+  </div>
+</section>
+
+
+ <section id="webinars">
+  <h3>Upcoming Webinars</h3>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="AI in Education">
+      <h4>AI in Education</h4>
+      <p>Discover how AI is transforming teaching and learning across schools and universities.</p>
+      <button>Join Webinar</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Digital Marketing">
+      <h4>Future of Digital Marketing</h4>
+      <p>Insights into upcoming trends, tools, and strategies in the digital marketing space.</p>
+      <button>Join Webinar</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756759252/Screenshot_2025-09-02_021019_av4u9k.png" alt="Data Analytics">
+      <h4>Data Analytics for Beginners</h4>
+      <p>Learn the basics of data analysis, visualization, and interpretation using real-world examples.</p>
+      <button>Join Webinar</button>
+    </div>
+  </div>
+</section>
+
+
+<section id="conferences">
+  <h3>Conferences</h3>
+  <div class="grid">
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757574/Screenshot_2025-09-02_013856_c2w5fn.png" alt="EdTech Conference">
+      <h4>International EdTech Conference 2025</h4>
+      <p>Global conference discussing innovations, tools, and practices in educational technology.</p>
+      <button>Register Now</button>
+    </div>
+    <div class="card">
+      <img src="https://res.cloudinary.com/dv3qjsfnt/image/upload/v1756757574/Screenshot_2025-09-02_013912_hflxmb.png" alt="AI Summit">
+      <h4>AI & Machine Learning Summit</h4>
+      <p>Leading experts discuss breakthroughs, applications, and research in AI and ML.</p>
+      <button>Register Now</button>
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 ECLearnix. All rights reserved.</p>
+  </footer>
+</body>
+</html>
